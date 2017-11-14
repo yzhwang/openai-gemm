@@ -690,7 +690,7 @@ def get_kernel(base_name, options=None):
     if build_cubin:
         # build the cubin and run maxas in the same command
         # we don't want the chance of a generated cubin not processed by maxas (in case user hits ^C in between these steps)
-        run_command([ "ptxas -v -arch", arch, "-o", cubin_file, ptx_file, ";" ] + maxas_i + [sass_file, cubin_file])
+        run_command([ "/usr/local/cuda-8.0/bin/ptxas -v -arch", arch, "-o", cubin_file, ptx_file, ";" ] + maxas_i + [sass_file, cubin_file])
         cubin_mtime = time.time()
 
     # output preprocessed and disassembled versions in debug mode
